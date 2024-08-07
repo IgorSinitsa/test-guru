@@ -5,20 +5,30 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+- Ruby version
+  3.3.4
+- Rails version
+  6.1.7.8
+- System dependencies
+  Ubuntu 22.04 LTS
+- Configuration
+  Docker version 25.0.3
+- Database creation
 
-* System dependencies
+- Database initialization
 
-* Configuration
+- How to run the test suite
 
-* Database creation
+- Services (job queues, cache servers, search engines, etc.)
 
-* Database initialization
+- Deployment instructions
 
-* How to run the test suite
+- Сущности (классы проекта)
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  Класс User (имя_пользователя, логин, пароль)
+  Класс Profile (пройденные тесты, баллы)
+  Класс Category (наименование категории)
+  Класс Difficulty(сложность, Test)
+  Класс Question (вопрос)
+  Класс Answer (варианты ответов )
+  Класс Test (Category, Question, Answer )

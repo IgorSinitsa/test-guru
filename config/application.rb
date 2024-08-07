@@ -16,7 +16,16 @@ module TestGuru
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    # config.time_zone = "Central Time (US & Canada)"
+    config.hosts << "apiauto.online"
+    #####################################################
+    config.time_zone = "Europe/Moscow"
     # config.eager_load_paths << Rails.root.join("extras")
+    #I18n config
+    I18n.load_path += Dir[Rails.root.join("lib", "locale", "*.{rb,yml}")]
+    # Permitted locales available for the application
+    I18n.available_locales = [:en, :ru]
+    # Set default locale to something other than :en
+    # но пока локали у нас нет русской
+    I18n.default_locale = :ru
   end
 end
