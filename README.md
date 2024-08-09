@@ -28,7 +28,6 @@ Things you may want to cover:
   Класс User (имя_пользователя, логин, пароль)
   Класс Profile (пройденные тесты, баллы)
   Класс Category (наименование категории)
-  Класс Difficulty(сложность, Test)
   Класс Question (вопрос)
   Класс Answer (варианты ответов )
-  Класс Test (Category, Question, Answer )
+  Класс Test (Category, Question, Answer, сложность )
