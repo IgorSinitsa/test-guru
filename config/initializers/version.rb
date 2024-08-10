@@ -1,9 +1,5 @@
 module TestGuru
-  VERSION = "0.1.0"
-
   class Application
-    def version
-      VERSION
-    end
+    VERSION = "0.1.0"
   end
 end
