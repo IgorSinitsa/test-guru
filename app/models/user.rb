@@ -1,3 +1,2 @@
-class Question < ApplicationRecord
-  validates name, password, presence: true
+class User < ApplicationRecord
 end
