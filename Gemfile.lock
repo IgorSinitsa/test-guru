@@ -62,7 +62,6 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
-    base64 (0.2.0)
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
@@ -81,6 +80,8 @@ GEM
     crass (1.0.6)
     date (3.3.4)
     erubi (1.13.0)
+    faker (3.4.2)
+      i18n (>= 1.8.11, < 2)
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-aarch64-linux-musl)
     ffi (1.17.0-arm-linux-gnu)
@@ -260,11 +261,10 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  base64
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
-  i18n (~> 1.14, >= 1.14.1)
+  faker
   jbuilder (~> 2.7)
   listen (~> 3.3)
   puma (~> 5.0)
