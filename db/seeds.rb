@@ -15,7 +15,7 @@ range_rand.each do
   User.create(user: Faker::Name.last_name, password: Faker::Alphanumeric.alpha(number: 10))
 end
 
-users_id = User.all.pluck(:id)
+users_id = User.all.pluck(:id).shuffle
 
 range_rand.each do
   category = Category.create(title: Faker::Lorem.word)
@@ -33,6 +33,12 @@ range_rand.each do
                       correct: rand(0..1),
                       question_id: question.id)
       end
+    end
+    range_rand.each do
+      user_shuffle = user_id.shuffle
+      Result.create(user_id: user_shuffle[0],
+                    test_id: test.id,
+                    point: rand(6))
     end
   end
 end
