@@ -1,5 +1,5 @@
 class User < ApplicationRecord
   def test_level(level)
-    Test.joins(:results).find_by(test.level = level)
+    Test.left_outer_joins(:results).find_by(tests.level = level)
   end
 end
