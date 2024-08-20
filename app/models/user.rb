@@ -5,8 +5,14 @@ class User < ApplicationRecord
   validates :name, presence: true,
                    uniqueness: true
   validates :password, presence: true
-  scope :test_level, ->(level) { tests.where(level: level) }
-  # def self.test_level(level)
-  #   self.tests.where(tests: { level: level })
-  # end
+  scope :test_level, ->(level) { joins(:tests).merge(Test.level(level)) }
+  scope :all_test_level, ->(level) { Test.level(level) }
+
+  def self.level(level)
+    test_level(level)
+  end
+
+  def user_level(level)
+    User.test_level(level)
+  end
 end

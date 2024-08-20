@@ -13,13 +13,13 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY.to_i) }
-  scope :category, ->(category) {
-          categories.where(categories: { title: category }).
-            order(tests: { title: :desc })
+  scope :level, ->(level) { where(tests: { level: level }) }
+  scope :category_of, ->(name) {
+          joins(:category).where(categories: { title: name })
         }
-  # def category(category)
-  #   joins(:categories).
-  #     where(categories: { title: category }).
-  #     order("tests.title DESC")
-  # end
+  # правильно понял об использования scope?
+
+  def self.category_order_desc(category)
+    category_of(category).order(title: :desc)
+  end
 end

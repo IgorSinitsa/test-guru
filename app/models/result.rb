@@ -1,6 +1,6 @@
 class Result < ApplicationRecord
-  belong_to :user
-  belong_to :test
-  validates :test_id, presence: true,
-                      uniqueness: { scope: :user_id }
+  belongs_to :user
+  belongs_to :test
+  validates :test_id, presence: true
+  # uniqueness: { scope: :user_id }
 end
