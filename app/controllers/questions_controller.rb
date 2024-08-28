@@ -1,16 +1,13 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_action :set_test, only: [:new, :create]
+  before_action :set_test, only: [:new, :create, :index]
   rescue_from ActiveRecord::RecordNotFound, with: :question_not_found
 
   def show
   end
 
   def index
-    respond_to do |format|
-      format.html { redirect_to test_path(Question.first) }
-      format.json { render json: { question: Question.all } }
-    end
+    @questions = @test.questions.order created_at: :desc
   end
 
   def new
@@ -41,7 +38,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:body, :test_id)
+    params.require(:question).permit(:body)
   end
 
   def set_question

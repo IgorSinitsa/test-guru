@@ -11,7 +11,7 @@ class TestsController < ApplicationController
     @tests = Test.all.order created_at: :desc
     respond_to do |format|
       format.html { }
-      format.json { render json: { tests: Test.all } }
+      format.json { render json: { tests: @tests } }
     end
   end
 
@@ -24,7 +24,7 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.new test_params
+    @test = Test.new(test_params)
     if @test.save
       redirect_to tests_path
     else

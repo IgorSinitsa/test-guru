@@ -1,0 +1,13 @@
+
+<h1> <%= link_to "#{@test.title} Level #{@test.level}", tests_path %> </h1>
+
+<p>
+  <%= link_to 'New question', new_test_question_path(@test.id) %>
+</p>
+<p>
+<%  @questions.each do |question|%>
+<p>
+  <%= link_to question.body, question_path(question)  %>
+</p>
+
+<%end%>
