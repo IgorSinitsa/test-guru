@@ -1,5 +1,6 @@
 <% if object&.errors&.full_messages&.any? %>
   <div class="alert alert-danger">
+    <p><%= pluralize(object.errors.count, 'error') %></p>
     <ul class="alert">
       <% object.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

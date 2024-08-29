@@ -37,10 +37,6 @@ class TestsController < ApplicationController
   end
 
   def destroy
-    # @test.questions.clear
-    @test.results.clear
-    @test.users.clear
-
     @test.destroy
     redirect_to tests_path
   end
