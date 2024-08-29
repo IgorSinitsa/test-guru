@@ -8,15 +8,11 @@ class TestsController < ApplicationController
   end
 
   def index
-    @tests = Test.all.order created_at: :desc
-    respond_to do |format|
-      format.html { }
-      format.json { render json: { tests: @tests } }
-    end
+    @tests = Test.all.order(created_at: :desc)
   end
 
   def update
-    if @test.update test_params
+    if @test.update(test_params)
       redirect_to tests_path
     else
       render :edit
@@ -33,7 +29,7 @@ class TestsController < ApplicationController
   end
 
   def show
-    @questions = @test.questions.order created_at: :desc
+    @questions = @test.questions.order(created_at: :desc)
   end
 
   def destroy
