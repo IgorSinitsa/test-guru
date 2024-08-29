@@ -1,0 +1,17 @@
+<%= form_with model: @test, local: true do |form| %>
+  <%= render "shared/errors", object: @test %> 
+  <p>
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :test_title %>
+  </p><br>
+  <p>
+    <%= form.label :level %>
+    <%= form.text_field :level, id: :test_level %>
+  </p><br>
+  <p>
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true, id: :test_category_id %>
+  </p><br> 
+    <%= form.hidden_field :author_id, value: @current_user.id, id: :test_author_id unless @current_user.nil? %>
+  <p><%= form.submit %></p>
+<% end %>

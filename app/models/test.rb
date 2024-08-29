@@ -18,8 +18,6 @@ class Test < ApplicationRecord
           joins(:category).where(categories: { title: name })
         }
 
-  # правильно понял об использования scope?
-
   def self.category_order_desc(category)
     category_of(category).order(title: :desc)
   end
