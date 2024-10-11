@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
-  before_action :set_test, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:new, :create]
+  before_action :set_test, only: [:show, :edit, :update, :destroy, :start]
+  before_action :set_user, only: [:new, :create, :start]
   before_action :check_user, only: [:edit, :update, :destroy]
 
   def new
@@ -37,6 +37,12 @@ class TestsController < ApplicationController
     redirect_to tests_path
   end
 
+  def start
+    @current_user.tests.push(@test) unless @current_user.result_id(@test).present?
+
+    redirect_to result_path(@current_user.result_id(@test).first)
+  end
+
   private
 
   def set_test
@@ -45,6 +51,15 @@ class TestsController < ApplicationController
 
   def set_user
     @current_user = User.first
+  end
+
+  def check_result_test(user, test)
+    if Result.where(user_id: user.id).where(test_id: test.id).present?
+      Result.where(user_id: user.id).where(test_id: test.id)
+    else
+      result = Result.new(user_id: user.id, test_id: test_id)
+      result if result.save
+    end
   end
 
   # тут для проверки свою или чужую запись редактирует

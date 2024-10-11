@@ -1,0 +1,11 @@
+<h1>Passing the <%= @result.test.title %> Test</h1>
+
+<% if @result.questions[0] == 0 %>
+ 
+  <%= render "scope" %>
+<% else %>
+<h3><%= attempt_title(@result) %> </h3>
+<h2><%= question_title(@result) %> </h2>
+  <%= render "form" %>
+<% end %>
+
