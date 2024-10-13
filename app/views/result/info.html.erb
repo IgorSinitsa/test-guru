@@ -4,7 +4,6 @@
  <%= "Number of All Questions in Test #{@result.total_questions}" %> <br>
  <%= "Questions with Correct Answers: #{@result.correct_questions} " %>
 </p>
-<% cl = @result.point > 85 ? "success" : "fail" %>
-<h2 class="<%= cl %>"> <%= show_result_message(@result) %> 
+<h2> <%= show_result_message(@result) %> 
 <%= link_to "Try Again", again_result_path(@result) %></h2><br>
 <%= link_to "All Tests", tests_path, method: "get" %>

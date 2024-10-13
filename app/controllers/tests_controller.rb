@@ -53,15 +53,6 @@ class TestsController < ApplicationController
     @current_user = User.first
   end
 
-  def check_result_test(user, test)
-    if Result.where(user_id: user.id).where(test_id: test.id).present?
-      Result.where(user_id: user.id).where(test_id: test.id)
-    else
-      result = Result.new(user_id: user.id, test_id: test_id)
-      result if result.save
-    end
-  end
-
   # тут для проверки свою или чужую запись редактирует
   def check_user
     # @current_user = @test.author_id != @current_user.id ? User.find(@test.author_id) : @current_user

@@ -1,6 +1,6 @@
 class ResultController < ApplicationController
   before_action :set_user, only: [:index]
-  before_action :set_result, only: [:show, :again, :update]
+  before_action :set_result, only: [:show, :again, :update, :info]
 
   def show
     render :show
@@ -15,9 +15,19 @@ class ResultController < ApplicationController
     redirect_to result_path(@result)
   end
 
+  def info
+    @result.set_poins
+    @result.save
+  end
+
   def update
-    @result.accept!(params[:answer_ids])
-    render :show
+    if @result.passed_test?
+      redirect_to info_result_path(@result)
+    else
+      @result.accept(params[:answer_ids])
+      @result.save
+      render :show
+    end
   end
 
   private

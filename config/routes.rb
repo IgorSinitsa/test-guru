@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: "tests#index"
-  resources :tests do
+  resources :tests, shallow: true do
     resources :questions, shallow: true do
-      resources :answers, shallow: true
+      resources :answers
     end
     member do
       post :start
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :result, only: %i[show update index] do
     member do
       get :again
+      get :info
     end
   end
 end
