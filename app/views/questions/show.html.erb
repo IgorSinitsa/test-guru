@@ -3,9 +3,12 @@
     <%= button_to "Edit", edit_question_path(@question), method: :get %>
     <%= button_to "Delete", question_path(@question), method: :delete %> 
 </div>
+<h2>Answers</h2>
+
+<%= link_to "New answer", new_question_answer_path(@question) %>
 <% @question.answers.each do |answer| %>
 <p>
- <%= answer.body %>
+ <%= link_to answer.body, answer_path(answer) %>
  </p>
 <% end %>
 

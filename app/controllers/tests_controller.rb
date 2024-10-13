@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
-  before_action :set_test, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:new, :create]
+  before_action :set_test, only: [:show, :edit, :update, :destroy, :start]
+  before_action :set_user, only: [:new, :create, :start]
   before_action :check_user, only: [:edit, :update, :destroy]
 
   def new
@@ -35,6 +35,12 @@ class TestsController < ApplicationController
   def destroy
     @test.destroy
     redirect_to tests_path
+  end
+
+  def start
+    @current_user.tests.push(@test) unless @current_user.result_id(@test).present?
+
+    redirect_to result_path(@current_user.result_id(@test).first)
   end
 
   private

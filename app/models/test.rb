@@ -21,4 +21,8 @@ class Test < ApplicationRecord
   def self.category_order_desc(category)
     category_of(category).order(title: :desc)
   end
+
+  def array_questions
+    self.questions.pluck(:id)
+  end
 end
