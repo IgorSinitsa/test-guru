@@ -1,4 +1,4 @@
-ul {
+.topnav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -12,11 +12,12 @@ ul {
   }
   
   li a {
-    display: block;
-    color: white;
+    float: left;
+    color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-size: 17px;
   }
   
   /* Настройки при наведении курсора на кнопку */

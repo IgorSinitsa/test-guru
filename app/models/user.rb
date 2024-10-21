@@ -2,12 +2,11 @@ class User < ApplicationRecord
   has_many :created_tests, foreign_key: :author_id, class_name: :Test
   has_many :results
   has_many :tests, through: :results
-  validates :user, presence: true,
+  validates :name, presence: true,
                    uniqueness: true
-  VALID_EMAIL_PATTERN = /\A\w+@\w+\.\w+\z/
 
   validates :email, presence: true,
-                    format: VALID_EMAIL_PATTERN,
+                    format: { with: URI::MailTo::EMAIL_REGEXP },
                     uniqueness: { case_sensitive: false }
 
   has_secure_password
