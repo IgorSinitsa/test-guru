@@ -50,7 +50,7 @@ class TestsController < ApplicationController
   end
 
   def set_user
-    @current_user = User.first
+    @current_user = current_user
   end
 
   # тут для проверки свою или чужую запись редактирует
