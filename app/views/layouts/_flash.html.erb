@@ -1,5 +1,1 @@
-<% if flash.present? %>
-<% flash.each do |key, message| %>
-  <p class="<%= key %>"> <%= message %></p>
-<% end %>
-  <% end %>
+<%= flash_message(flash) %>
