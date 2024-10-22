@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Welcome back, #{user.name}!"
       redirect_to(cookies.delete(:in_user_url) || tests_path)
     else
-      flash.now[:alert] = "Verify your Email and Password please"
+      flash[:alert] = "Verify your Email and Password please"
       redirect_to login_path
     end
   end

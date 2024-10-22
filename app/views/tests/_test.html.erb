@@ -2,9 +2,10 @@
  <td> <%= link_to "#{test.title}", test_path(test) %> </td>
  <td> <%= test.level %> </td> 
  <td> <%= test.questions.count %> </td>
- <td> <%= button_to "Edit", edit_test_path(test), method: :get %> </td>
+ <td> <%= button_to "Edit", edit_test_path(test), method: :get, class: "myButton" %> </td>
  <td> <%= button_to "Delete", test_path(test), method: :delete,
                                                remote: :true,
+                                               class: "myButton",
                                                data: { confirm: "Are you sure?" } %></td>
- <td> <%= button_to "Start", start_test_path(test), method: :post %> </td>
+ <td> <%= button_to "Start", start_test_path(test), method: :post, class: "myButton" %> </td>
 </tr>

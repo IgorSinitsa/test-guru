@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def flash_message(flash)
+  def flash_message
     if flash.present?
       result_boby = []
       flash.each do |key, message|
