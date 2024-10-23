@@ -4,7 +4,17 @@ class User < ApplicationRecord
   has_many :tests, through: :results
   validates :name, presence: true,
                    uniqueness: true
-  validates :password, presence: true
+
+  validates :email, presence: true,
+                    format: { with: URI::MailTo::EMAIL_REGEXP },
+                    uniqueness: { case_sensitive: false }
+
+  has_secure_password
+
+  def self.authenticate(email:, password:)
+    user = User.find_by(email: email)
+    user&.authenticate(password)
+  end
 
   def pass_test_level(level)
     tests.level(level)
