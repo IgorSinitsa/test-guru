@@ -1,4 +1,5 @@
 module ApplicationHelper
+  # добавлю, чтоб в гит залились изменения
   def flash_message
     if flash.present?
       result_boby = []
