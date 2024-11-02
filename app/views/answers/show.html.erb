@@ -15,3 +15,5 @@
 </p>
 <%= button_to "Edit", edit_answer_path(@answer), method: :get %>
 <%= button_to "Delete", answer_path(@answer), method: :delete %>
+<%= link_to "Delete", answer_path(@answer), method: :delete,
+                                            data: { confirm: "Are you sure?" } %>
