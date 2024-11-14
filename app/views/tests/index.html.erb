@@ -1,15 +1,14 @@
 <h2> Tests </h2>
-<p>
-  <%= link_to "New Test", new_test_path %>
-</p>
-  <table>
+<table class="table table-striped">
+  <thead class="thead-dark">
     <tr>
       <th>Title</th>
       <th>Level</th>
       <th>Questions</th>
-      <th colspan="5">Actions</th>
+      <th >Actions</th>
     </tr>
-
+  </thead>
+  <tbody>
     <%= render @tests %>
-
-  </table>
+  </tbody>
+</table>

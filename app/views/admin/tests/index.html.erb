@@ -1,0 +1,20 @@
+<h2> Tests </h2>
+<p>
+  <%= link_to "New Test", new_admin_test_path %>
+</p>
+<% unless @tests.blank? %>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Edit</th>
+        <th>Title</th>
+        <th>Level</th>
+        <th>Questions</th>
+        <th colspan="4">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @tests  %>
+    <% end %>
+  </tbody>
+</table>

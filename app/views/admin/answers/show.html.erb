@@ -1,0 +1,15 @@
+<h1>Question</h1>
+<p>
+  <%= link_to @answer.question.body, admin_question_path(@answer.question) %>
+</p>
+<p>
+  <b>Answer:</b>
+  <%= @answer.body %>
+</p>
+<p>
+  <b>Correct:</b>
+  <%= @answer.correct %>
+</p>
+<%= link_to "Edit", edit_admin_answer_path(@answer), method: :get %>
+<%= link_to "Delete", admin_answer_path(@answer), method: :delete,
+                                            data: { confirm: "Are you sure?" } %>
