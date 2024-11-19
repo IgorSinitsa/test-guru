@@ -15,6 +15,5 @@
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true, id: :test_category_id %>
   </p>
   <br>
-  <%= form.hidden_field :author_id, value: @current_user.id, id: :test_author_id  %>
   <p><%= form.submit %></p>
 <% end %>

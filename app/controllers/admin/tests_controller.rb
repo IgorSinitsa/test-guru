@@ -1,6 +1,6 @@
 class Admin::TestsController < Admin::BaseController
   before_action :set_test, only: [:show, :edit, :update, :destroy, :start]
-  before_action :set_user, only: [:new, :create]
+
   before_action :check_user_author, only: [:edit, :update, :destroy]
 
   def new
@@ -24,7 +24,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    @test = Test.new(test_params)
+    @test = current_user.created_tests.new(test_params)
     if @test.save
       redirect_to admin_tests_path
     else
@@ -47,10 +47,6 @@ class Admin::TestsController < Admin::BaseController
     @test = Test.find(params[:id])
   end
 
-  def set_user
-    @current_user = current_user
-  end
-
   def check_user_author
     if current_user.id != @test.author_id
       flash[:alert] = "You are not the author of this test."
@@ -59,6 +55,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 end

@@ -24,4 +24,8 @@ class User < ApplicationRecord
   def result_id(test)
     self.results.where(test_id: test.id)
   end
+
+  def admin?
+    is_a?(Admin)
+  end
 end
