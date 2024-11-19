@@ -9,13 +9,13 @@ module ResultHelper
 
   def show_result_message(result)
     if result.test_passed?
-      _class = "success"
+      css_class = "success"
       text = "SUCCESS! Test was completed!"
     else
-      _class = "fail"
+      css_class = "fail"
       text = "FAIL! Please try again."
     end
-    result_body = "<div class = #{_class}> Scope #{result.point} #{text}"
+    result_body = "<div class = #{css_class}> Scope #{result.point} #{text}"
 
     safe_join([raw(result_body)])
   end

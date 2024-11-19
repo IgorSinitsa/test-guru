@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <nav class="d-flex align-items-center justify-content-center">
+    <%= link_to "Test Guru", root_path, class: "navbar-brand ms-5" %>
+    <ul class="nav col-8 justify-content-center mb-md-0  ">
+      <li class="nav-item">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Test
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "Hard", root_path, class: "dropdown-item" %></li>
+          <li><%= link_to "Medium", root_path, class: "dropdown-item" %></li>
+          <li><%= link_to "Light", root_path, class: "dropdown-item" %></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav   me-5 justify-content-end mb-md-0">
+      <%= render "layouts/login" %>
+    </ul>
+  </nav>
+</div>

@@ -22,6 +22,7 @@ class ResultController < ApplicationController
 
   def update
     if @result.passed_test?
+      TestsMailer.completed_test(@result).deliver_now
       redirect_to info_result_path(@result)
     else
       @result.accept(params[:answer_ids])
