@@ -1,7 +1,7 @@
 <% if object&.errors&.full_messages&.any? %>
-  <div class="flash alert">
-    <p><%= pluralize(object.errors.count, "error") %></p>
-    <ul class="alert">
+  <div class="alert alert-warning">
+    <p><%= t('.header', count: object.errors.count) %></p>
+    <ul >
       <% object.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>

@@ -1,0 +1,28 @@
+ru:
+  activerecord:
+    models:
+      test: 'Тест'
+      answer: 'Ответ'
+      question: 'Вопрос'
+      user: 'Пользователь'
+    attributes:
+      result:
+        correct_questions: 'Правильных ответов'
+      test:
+        title: 'Название'
+        author: 'Автор'
+      question:
+        body: 'Текст вопроса'
+      answer:
+        body: 'Текст ответа'
+        correct: 'Верно?'
+      user:
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        remember_me: 'Запомнить'
+    errors:
+      messages:
+        blank: 'не может быть пустым'
+        required: 'дожно быть заполнено'

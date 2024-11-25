@@ -1,0 +1,63 @@
+ru:
+    button:
+      edit: "Редактирование"
+      delete: "Удаление"
+      new: "Создать"
+      confirm: "Вы уверены?"
+      start: "Начать"
+
+    menu:
+      welcome: "Добро пожаловать %{name} guru"
+      hard: "Сложные"
+      medium: "Средние"
+      light: "Легкие"
+
+    shared:
+      errors:
+        header:
+          few: "Обнаружено %{count} ошибки"
+          many: "Обнаружено %{count} ошибок"
+          one: "Обнаружена %{count} ошибка"
+          other: "Обнаружено %{count} ошибки"
+
+    helpers:
+      select:
+        prompt: "Выберите категорию"
+      submit:
+        test:
+          create: "Создать тест"
+          update: "Обновить тест"
+      label:
+        test:
+          title: "Название"
+          level: "Уровень"
+          category_id: "Категория"
+          
+    tests:
+      index:
+        header: "Доступные тесты"
+        title: "Название"
+        level: "Уровень"
+        questions: "Вопросов"
+        actions: "Действие"
+
+
+    admin:
+      tests:
+        index:
+          header: "Доступные тесты"
+          new: "Новый тест"
+          edit: "Редактирование (Да/Нет)"
+          title: "Название"
+          level: "Уровень"
+          questions: "Вопросов"
+          actions: "Действие"
+        show:
+          new_question: "Новый вопрос"
+
+        new:
+          new: "Новый тест"
+    
+    tests_mailer:
+      completed_test:
+        subject: 'Вы успешно завершили тест!'

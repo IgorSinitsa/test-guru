@@ -1,0 +1,17 @@
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <%=t(I18n.locale) %>
+  </a>
+  <ul class="dropdown-menu">
+    <% I18n.available_locales.each do |locale| %>
+      <li>
+        <% if I18n.locale == locale %>
+          <%= tag.span t(locale), class: 'dropdown-item' %>
+        <% else %>
+          <%= link_to t(locale), url_for(lang: locale),
+                      class: 'dropdown-item' %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</li>

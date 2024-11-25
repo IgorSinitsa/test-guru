@@ -3,6 +3,7 @@ class ResultController < ApplicationController
   before_action :set_result, only: [:show, :again, :update, :info]
 
   def show
+    @result.again if @result.passed_test?
     render :show
   end
 
@@ -34,7 +35,7 @@ class ResultController < ApplicationController
   private
 
   def set_user
-    @user = User.find(id: flash[:user])
+    @user = current_user
   end
 
   def set_result

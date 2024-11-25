@@ -1,0 +1,28 @@
+ru:
+  activerecord:
+    models:
+      test: 'Test'
+      answer: 'Answer'
+      question: 'Question'
+      user: 'User'
+    attributes:
+      result:
+        correct_questions: 'Correct questions'
+      test:
+        title: 'Title'
+        author: 'Author'
+      question:
+        body: 'Text question'
+      answer:
+        body: 'Text answer'
+        correct: 'Correct?'
+      user:
+        first_name: 'First name'
+        last_name: 'Last name'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+        remember_me: 'Remember me'
+    errors:
+      messages:
+        blank: "Can't be blank"
+        required: 'must exist'
