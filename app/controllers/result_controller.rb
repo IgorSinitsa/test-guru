@@ -1,5 +1,4 @@
 class ResultController < ApplicationController
-  before_action :set_user, only: [:index]
   before_action :set_result, only: [:show, :again, :update, :info]
 
   def show
@@ -33,10 +32,6 @@ class ResultController < ApplicationController
   end
 
   private
-
-  def set_user
-    @user = current_user
-  end
 
   def set_result
     @result = Result.find(params[:id])
