@@ -5,6 +5,11 @@ ru:
       new: "Создать"
       confirm: "Вы уверены?"
       start: "Начать"
+      admin: "Админ панель"
+      edit_profile: "Редактирование профиля"
+      log_out: "Выход"
+      sign_in: "Зарегистрироваться"
+      log_in: "Вход"
 
     menu:
       welcome: "Добро пожаловать %{name} guru"

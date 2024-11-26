@@ -5,6 +5,11 @@ en:
       new: "New"
       confirm: "Are you sure?"
       start: "Start"
+      admin: "Admin Panel"
+      edit_profile: "Edit Profile"
+      log_out: "Log Out"
+      sign_in: "Sign In"
+      log_in: "Log In"
 
     menu:
       welcome: "Welcome %{name} guru"
