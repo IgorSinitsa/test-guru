@@ -24,7 +24,7 @@ module TestGuru
     # Permitted locales available for the application
     config.i18n.available_locales = [:en, :ru]
     # Set default locale to something other than :en
-    # но пока локали у нас нет русской
+
     config.i18n.default_locale = :ru
   end
 end

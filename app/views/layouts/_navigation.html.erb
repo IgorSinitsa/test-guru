@@ -10,13 +10,14 @@
           Test
         </a>
         <ul class="dropdown-menu">
-          <li><%= link_to "Hard", root_path, class: "dropdown-item" %></li>
-          <li><%= link_to "Medium", root_path, class: "dropdown-item" %></li>
-          <li><%= link_to "Light", root_path, class: "dropdown-item" %></li>
+          <li><%= link_to t("menu.hard"), root_path, class: "dropdown-item" %></li>
+          <li><%= link_to t("menu.medium"), root_path, class: "dropdown-item" %></li>
+          <li><%= link_to t("menu.light"), root_path, class: "dropdown-item" %></li>
         </ul>
       </li>
     </ul>
     <ul class="nav   me-5 justify-content-end mb-md-0">
+      <%= render "layouts/lang" %>
       <%= render "layouts/login" %>
     </ul>
   </nav>

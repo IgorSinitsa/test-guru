@@ -1,6 +1,6 @@
 <h1> <%= link_to "#{@test.title} Level #{@test.level}", tests_path %> </h1>
 <p>
-  <%= link_to "New question", new_admin_test_question_path(@test.id) %>
+  <%= link_to t(".new_question"), new_admin_test_question_path(@test.id) %>
 </p>
 <p>
   <% @questions.each do |question| %>

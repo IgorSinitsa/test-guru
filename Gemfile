@@ -25,6 +25,7 @@ gem "jsbundling-rails"
 gem "sprockets-rails"
 gem "cssbundling-rails"
 gem "devise", "~> 4.0"
+gem "rails-i18n", "~> 6.0.0"
 
 # ??
 gem "mutex_m", "~> 0.2.0"

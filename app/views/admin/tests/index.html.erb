@@ -1,16 +1,16 @@
-<h2> Tests </h2>
+<h1> <%= t(".header") %> </h1>
 <p>
-  <%= link_to "New Test", new_admin_test_path %>
+  <%= link_to t(".new"), new_admin_test_path %>
 </p>
 <% unless @tests.blank? %>
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>
-        <th>Edit</th>
-        <th>Title</th>
-        <th>Level</th>
-        <th>Questions</th>
-        <th colspan="4">Actions</th>
+        <th><%= t(".edit") %></th>
+        <th><%= t(".title") %></th>
+        <th><%= t(".level") %></th>
+        <th><%= t(".questions") %></th>
+        <th ><%= t(".actions") %></th>
       </tr>
     </thead>
     <tbody>
