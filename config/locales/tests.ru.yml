@@ -1,4 +1,9 @@
 ru:
+    text:
+      description: "Вопрос из %{test} из TestGuru"
+      git_success: "Записан Gist %{gist_url}"
+      git_falure: "Ошибка записи"
+
     button:
       edit: "Редактирование"
       delete: "Удаление"
@@ -10,6 +15,7 @@ ru:
       log_out: "Выход"
       sign_in: "Зарегистрироваться"
       log_in: "Вход"
+      gist: "Запись Gist"
 
     menu:
       welcome: "Добро пожаловать %{name} guru"
@@ -48,6 +54,12 @@ ru:
 
 
     admin:
+      gists:
+        index:
+          question: "Вопрос"
+          email: "Email"
+          url: "Github url"
+
       tests:
         index:
           header: "Доступные тесты"

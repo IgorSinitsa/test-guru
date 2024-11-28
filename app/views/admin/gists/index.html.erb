@@ -1,0 +1,16 @@
+<% if @gists.blank? %>
+  <h1> t(text.no_gists) </h1>
+<% else%>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th><%= t(".question") %></th>
+        <th><%= t(".email") %></th>
+        <th><%= t(".url") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @gists  %>
+    </tbody>
+  </table>
+<% end%>
