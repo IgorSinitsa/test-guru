@@ -1,10 +1,21 @@
 en:
+    text:
+      description: "A question about %{test} from TestGuru"
+      git_success: "Save Gist %{gist_url}"
+      git_falure: "Fail Save Gist"
+
     button:
       edit: "Edit"
       delete: "Delete"
       new: "New"
       confirm: "Are you sure?"
       start: "Start"
+      admin: "Admin Panel"
+      edit_profile: "Edit Profile"
+      log_out: "Log Out"
+      sign_in: "Sign In"
+      log_in: "Log In"
+      gist: "Save Gist"
 
     menu:
       welcome: "Welcome %{name} guru"
@@ -37,6 +48,12 @@ en:
         actions: "Actions"
 
     admin:
+      gists:
+        index:
+          question: "Question"
+          email: "Email"
+          url: "Github url"
+
       tests:
         index:
           header: "Tricky Tests"

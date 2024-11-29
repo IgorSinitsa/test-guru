@@ -15,10 +15,13 @@
           <li><%= link_to "Start Test", root_path, class: "dropdown-item" %></li>
         </ul>
       </li>
+      <li class="nav-item">
+        <%= link_to "Gist", admin_gists_path, class: "nav-link" %>
+      </li>
     </ul>
     <ul class="nav   me-5 justify-content-end mb-md-0">
-      <%= render "layouts/lang" %>
-      <%= render "layouts/login" %>
+      <%= render "shared/lang" %>
+      <%= render "shared/login" %>
     </ul>
   </nav>
 </div>

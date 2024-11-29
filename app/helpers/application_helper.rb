@@ -1,4 +1,8 @@
 module ApplicationHelper
+  HASH_CSS_FLASH = { alert: "alert alert-danger",
+                     success: "alert alert-success",
+                     notice: "alert alert-info" }
+
   def github_url(user:, repo: "")
     result_body = if repo.blank?
         user
@@ -20,5 +24,9 @@ module ApplicationHelper
 
   def current_year
     Date.today.year
+  end
+
+  def css_flash(key)
+    HASH_CSS_FLASH[key.to_sym] || "alert alert-dark"
   end
 end

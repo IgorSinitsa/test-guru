@@ -12,7 +12,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :gitgists, only: %i[create]
+
   namespace :admin do
+    resources :gists, only: :index
     resources :tests, shallow: true do
       resources :questions, shallow: true do
         resources :answers

@@ -1,5 +1,4 @@
 <%= form_with url: result_path(@result), local: true, method: :put do |form| %>
-
   <%= form.collection_check_boxes :answer_ids,
                                   @result.current_question.answers,
                                   :id, :body, include_hidden: false do |b| %>
@@ -8,7 +7,6 @@
       <%= b.label %>
     </p>
   <% end %>
-
+  <p> <%= link_to t("button.gist"), gitgists_path(result: @result.id), method: :post %> </p>
   <p><%= form.submit "Next" %></p>
-
 <% end %>
