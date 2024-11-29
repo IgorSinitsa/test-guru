@@ -1,27 +1,9 @@
 class ResultController < ApplicationController
-  before_action :set_result, only: [:show, :again, :update, :info, :gist]
+  before_action :set_result, only: [:show, :again, :update, :info]
 
   def show
     @result.again if @result.passed_test?
     render :show
-  end
-
-  def gist
-    gist_save = GistQuestionService.new(@result.current_question)
-    result = gist_save.send_gist
-
-    if gist_save.success?
-      Gist.create(
-        question: @result.current_question,
-        url: result[:html_url],
-        user: current_user,
-      )
-      flash[:notice] = t("text.git_success", gist_url: result[:html_url])
-    else
-      flash[:alert] = t("text.git_falure")
-    end
-
-    redirect_to @result
   end
 
   def index

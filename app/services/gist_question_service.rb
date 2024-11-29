@@ -7,13 +7,12 @@ class GistQuestionService
     @client = client || Octokit::Client.new(access_token: ACCESS_TOKEN)
   end
 
-  def call
+  def send_gist
     @client.create_gist(gist_params)
   end
 
   def success?
     @client.last_response.status == 201
-    # self.last_response.status == 201
   end
 
   private

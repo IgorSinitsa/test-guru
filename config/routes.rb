@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :gitgists, only: %i[create]
+
   namespace :admin do
     resources :gists, only: :index
     resources :tests, shallow: true do
@@ -25,7 +27,6 @@ Rails.application.routes.draw do
     member do
       get :again
       get :info
-      post :gist
     end
   end
 end
