@@ -1,18 +1,21 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :set_test, only: [:show, :edit, :update, :destroy, :start]
-
+  before_action :set_tests, only: [:index, :update_inline]
+  before_action :set_test, only: [:show, :edit, :update, :destroy, :start, :update_inline]
   before_action :check_user_author, only: [:edit, :update, :destroy]
 
   def new
     @test = Test.new
   end
 
-  def index
-    if params[:view_test] == "all"
-      @tests = Test.all.order(created_at: :desc)
+  def update_inline
+    if @test.update(test_params)
+      redirect_to admin_tests_path
     else
-      @tests = current_user.created_tests
+      render :index
     end
+  end
+
+  def index
   end
 
   def update
@@ -42,6 +45,14 @@ class Admin::TestsController < Admin::BaseController
   end
 
   private
+
+  def set_tests
+    if params[:view_test] == "all"
+      @tests = Test.all.order(created_at: :desc)
+    else
+      @tests = current_user.created_tests
+    end
+  end
 
   def set_test
     @test = Test.find(params[:id])

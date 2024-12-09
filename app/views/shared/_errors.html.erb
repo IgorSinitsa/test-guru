@@ -1,10 +1,12 @@
-<% if object&.errors&.full_messages&.any? %>
-  <div class="alert alert-warning">
-    <p><%= t('.header', count: object.errors.count) %></p>
-    <ul >
-      <% object.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
+<%if object&.errors&.full_messages&.any? %>
+  <%= content_tag :div, class: 'resource-errors alert alert-warning', data: { resource_id: object.id } do %>
+    <div class="alert alert-warning">
+      <p><%= t('.header', count: object.errors.count) %></p>
+      <ul >
+        <% object.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <% end %>
