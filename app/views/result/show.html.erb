@@ -1,5 +1,5 @@
 <h1>Passing the <%= @result.test.title %> Test</h1>
-<%= render partial: 'shared/progress', percent: percent_completed_test(@result) %>
+<%= render partial: 'shared/progress', locals: {percent: percent_completed_test(@result)} %>
 <h3><%= attempt_title(@result) %> </h3>
 <h2><%= question_title(@result) %> </h2>
 <h2><%=  %> </h2>
