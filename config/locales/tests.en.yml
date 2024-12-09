@@ -16,6 +16,8 @@ en:
       sign_in: "Sign In"
       log_in: "Log In"
       gist: "Save Gist"
+      ok: "Ok"
+      cancel: "Cancel"
 
     menu:
       welcome: "Welcome %{name} guru"

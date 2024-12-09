@@ -1,6 +1,9 @@
 <tr>
   <td> <%= check_edit_current_user(test) %> </td>
-  <td> <%= link_to "#{test.title}", admin_test_path(test) %> </td>
+  <td class="align-middle">
+    <%= content_tag :span, test.title, class: 'test-title pointer', data: { test_id: test.id } %>
+    <%= render 'form_inline', test: test == @test ? @test : test %>
+  </td>
   <td> <%= test.level %> </td>
   <td> <%= test.questions.count %> </td>
   <td> <%= button_to t("button.edit"), edit_admin_test_path(test), method: :get, class: "btn btn-primary" %> </td>

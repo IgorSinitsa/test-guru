@@ -16,6 +16,8 @@ ru:
       sign_in: "Зарегистрироваться"
       log_in: "Вход"
       gist: "Запись Gist"
+      ok: "Ok"
+      cancel: "Отмена"
 
     menu:
       welcome: "Добро пожаловать %{name} guru"
