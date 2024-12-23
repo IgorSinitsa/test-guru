@@ -1,4 +1,8 @@
 module ResultHelper
+  def percent_completed_test(result)
+    ((result.index_question.to_f / result.test.questions.length) * 100).to_i
+  end
+
   def question_title(result)
     "Questions № #{result.index_question} #{result.current_question.body} question"
   end
