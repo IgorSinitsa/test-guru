@@ -24,6 +24,7 @@ ru:
       hard: "Сложные"
       medium: "Средние"
       light: "Легкие"
+      feedback: "Отзыв"
 
     shared:
       errors:

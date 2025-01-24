@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :gitgists, only: %i[create]
+  resources :feedbacks, only: %i[new create edit]
 
   namespace :admin do
     resources :gists, only: :index
