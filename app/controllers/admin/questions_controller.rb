@@ -26,7 +26,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def update
     if @question.update(question_params)
-      redirect_to @question, notice: "Question was succesfuly update"
+      redirect_to admin_question_path(@question), notice: "Question was succesfuly update"
     else
       render :edit
     end

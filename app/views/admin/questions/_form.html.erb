@@ -3,7 +3,7 @@
   <%= render "shared/errors", object: @question %>
   <p>
     <%= form.label :body %>
-    <%= form.text_field :body, id: :question_body %>
+    <%= form.text_area :body, id: :question_body, rows: 7, cols: 60 %>
   </p>
   <br>
   <p><%= form.submit %></p>
