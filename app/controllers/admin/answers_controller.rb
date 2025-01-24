@@ -22,7 +22,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def update
     if @answer.update(answer_params)
-      redirect_to @answer, flash: { success: "Answer was succesfuly update" }
+      redirect_to admin_answer_path(@answer), flash: { success: "Answer was succesfuly update" }
     else
       render :edit
     end

@@ -1,11 +1,11 @@
 <div class="container-fluid">
-  <nav class="d-flex align-items-center justify-content-center">
+  <nav class="d-flex justify-content-between align-items-stretch">
     <%= link_to "Admin panel", admin_tests_path, class: "navbar-brand ms-5" %>
     <ul class="nav col-8 justify-content-center mb-md-0  ">
       <li class="nav-item">
         <%= link_to "Home", root_path, class: "nav-link" %>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item  dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Test
         </a>
@@ -19,9 +19,13 @@
         <%= link_to "Gist", admin_gists_path, class: "nav-link" %>
       </li>
     </ul>
-    <ul class="nav   me-5 justify-content-end mb-md-0">
-      <%= render "shared/lang" %>
-      <%= render "shared/login" %>
+    <ul class="nav nav col-3" >
+      <li class="nav-item" >
+        <%= render "shared/lang" %>
+      </li>
+      <li class="nav-item" >
+        <%= render "shared/login" %>
+      </li>
     </ul>
   </nav>
 </div>
