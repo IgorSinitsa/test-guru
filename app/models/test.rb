@@ -1,9 +1,9 @@
 class Test < ApplicationRecord
   belongs_to :author, foreign_key: :author_id, class_name: :User
   belongs_to :category
-  has_many :results
+  has_many :results, dependent: :destroy
   has_many :users, through: :results
-  has_many :questions
+  has_many :questions, dependent: :destroy
   validates :title, presence: true
 
   validates :level, presence: true,

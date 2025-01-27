@@ -1,10 +1,28 @@
-<h1> <%= link_to "#{@test.title} Level #{@test.level}", tests_path %> </h1>
-<p>
-  <%= link_to t(".new_question"), new_admin_test_question_path(@test.id) %>
-</p>
-<p>
-  <% @questions.each do |question| %>
-    <p>
-      <%= link_to question.body, admin_question_path(question) %>
-    </p>
-  <% end %>
+<div class="row ">
+  <div class="card col-4" >
+    <div class="card-body text-center">
+      <%= link_to @test.title, tests_path %>
+    </div>
+    <div class="card-footer text-center">
+      <%= link_to t("button.edit"), edit_admin_test_path(@test) %>
+      <%= link_to t("button.delete"), admin_test_path(@test),
+                                     method: :delete ,
+                                     data: { confirm: t("button.confirm") } %>
+    </div>
+  </div>
+  <div class="card col-8" >
+    <div class="card-header text-center">
+      Вопросы
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <%= link_to t(".new_question"), new_admin_test_question_path(@test.id) %>
+      </li>
+      <% @test.questions.each do |question| %>
+        <li class="list-group-item">
+          <%= link_to question.body, admin_question_path(question) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

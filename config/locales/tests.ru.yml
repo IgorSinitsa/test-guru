@@ -3,6 +3,8 @@ ru:
       description: "Вопрос из %{test} из TestGuru"
       git_success: "Записан Gist %{gist_url}"
       git_falure: "Ошибка записи"
+      edit_test: "Редактирование теста %{test} уровня %{level} "
+      edit_question: "Назад к тесту"
 
     button:
       edit: "Редактирование"
@@ -18,6 +20,7 @@ ru:
       gist: "Запись Gist"
       ok: "Ok"
       cancel: "Отмена"
+      submit: "Записать"
 
     menu:
       welcome: "Добро пожаловать %{name} guru"

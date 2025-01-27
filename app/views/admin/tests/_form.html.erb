@@ -1,19 +1,21 @@
-<%= form_with model:[:admin, @test], local: true do |form| %>
-  <%= render "shared/errors", object: @test %>
-  <p>
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :test_title %>
-  </p>
-  <br>
-  <p>
-    <%= form.label :level %>
-    <%= form.text_field :level, id: :test_level %>
-  </p>
-  <br>
-  <p>
-    <%= form.label :category_id %>
-    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true, id: :test_category_id %>
-  </p>
-  <br>
-  <p><%= form.submit %></p>
-<% end %>
+<div class="card-subtitle  border rounded p-3 border-info">
+  <%= form_with model:[:admin, @test], local: true do |form| %>
+    <%= render "shared/errors", object: @test %>
+    <p>
+      <%= form.label :title %>
+      <%= form.text_field :title, id: :test_title %>
+    </p>
+    <br>
+    <p>
+      <%= form.label :level %>
+      <%= form.text_field :level, id: :test_level %>
+    </p>
+    <br>
+    <p>
+      <%= form.label :category_id %>
+      <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true, id: :test_category_id %>
+    </p>
+    <br>
+    <%= form.submit t('button.submit'), class: 'btn btn-outline-primary' %>
+  <% end %>
+</div>

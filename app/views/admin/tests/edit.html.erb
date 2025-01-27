@@ -1,9 +1,8 @@
-<h1>Edit test</h1>
-<h1> <%= link_to "#{@test.title} Level #{@test.level}", tests_path %> </h1>
-<p>
-  <% @test.questions.each do |question| %>
-    <p>
-      <%= link_to question.body, admin_question_path(question) %>
-    </p>
-  <% end %>
-  <%= render 'form' %>
+<div class="card col-6" >
+  <div class="card-header text-center">
+    <%= link_to t("text.edit_test", test: @test.title, level: @test.level ), admin_test_path(@test) %>
+  </div>
+  <div class="card-body">
+    <%= render 'form' %>
+  </div>
+</div>

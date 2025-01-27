@@ -6,7 +6,7 @@
   </td>
   <td> <%= test.level %> </td>
   <td> <%= test.questions.count %> </td>
-  <td> <%= button_to t("button.edit"), edit_admin_test_path(test), method: :get, class: "btn btn-primary" %> </td>
+  <td> <%= button_to t("button.edit"), admin_test_path(test), method: :get, class: "btn btn-primary" %> </td>
   <td> <%= button_to t("button.delete"), admin_test_path(test), method: :delete,
                                                remote: :true,
                                                class: "btn btn-primary",

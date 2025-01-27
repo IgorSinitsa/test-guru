@@ -54,7 +54,7 @@ class Admin::AnswersController < Admin::BaseController
   def check_user_author
     if current_user.id != @question.test.author_id
       flash[:alert] = "You are not the author of this test."
-      redirect_to @question
+      redirect_to admin_question_path(@question)
     end
   end
 end

@@ -8,9 +8,9 @@ class User < ApplicationRecord
          :rememberable,
          :validatable
   has_many :created_tests, foreign_key: :author_id, class_name: :Test
-  has_many :results
+  has_many :results, dependent: :destroy
   has_many :tests, through: :results
-  has_many :gists
+  has_many :gists, dependent: :destroy
 
   def pass_test_level(level)
     tests.level(level)
