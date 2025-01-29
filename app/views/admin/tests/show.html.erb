@@ -2,6 +2,7 @@
   <div class="card col-4" >
     <div class="card-body text-center">
       <%= link_to @test.title, tests_path %>
+      <%= post?(@test) %>
     </div>
     <div class="card-footer text-center">
       <%= link_to t("button.edit"), edit_admin_test_path(@test) %>

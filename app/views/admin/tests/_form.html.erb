@@ -1,6 +1,8 @@
 <div class="card-subtitle  border rounded p-3 border-info">
   <%= form_with model:[:admin, @test], local: true do |form| %>
     <%= render "shared/errors", object: @test %>
+    <%= form.label :post %>
+    <%= form.check_box :post, id: :test_post %>
     <p>
       <%= form.label :title %>
       <%= form.text_field :title, id: :test_title %>

@@ -20,6 +20,11 @@ class Test < ApplicationRecord
         }
   scope :valid, -> { joins(:answers).where("answers.correct = ?", true).group("tests.id") }
 
+def self.post_test
+  valid.where(post: :true)
+
+end
+
   def self.category_order_desc(category)
     category_of(category).order(title: :desc)
   end

@@ -2,7 +2,7 @@ class TestsController < ApplicationController
   before_action :set_test, only: [:start]
 
   def index
-    @tests = Test.valid.order(created_at: :desc)
+    @tests = Test.post_test.order(created_at: :desc)
   end
 
   def start
