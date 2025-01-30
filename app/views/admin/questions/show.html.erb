@@ -1,12 +1,28 @@
-<h1><%= link_to @question.body, admin_test_path(@question.test) %></h1>
-<div style="display:inline-block">
-  <%= link_to t("button.edit"), edit_admin_question_path(@question), method: :get %>
-  <%= link_to t("button.delete"), admin_question_path(@question), method: :delete %>
+<div class="row ">
+  <div class="card col-4" >
+    <div class="card-body text-center">
+      <%= link_to @question.body, admin_test_path(@question.test) %>
+    </div>
+    <div class="card-footer text-center">
+      <%= link_to t("button.edit"), edit_admin_question_path(@question), method: :get %>
+      <%= link_to t("button.delete"), admin_question_path(@question),
+                                     method: :delete ,
+                                     data: { confirm: t("button.confirm") } %>
+    </div>
+  </div>
+  <div class="card col-8" >
+    <div class="card-header text-center">
+      Ответы
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <%= link_to "New answer", new_admin_question_answer_path(@question) %>
+      </li>
+      <% @question.answers.each do |answer| %>
+        <li class="list-group-item">
+          <%= link_to answer.body, admin_answer_path(answer) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
-<h2>Answers</h2>
-<%= link_to "New answer", new_admin_question_answer_path(@question) %>
-<% @question.answers.each do |answer| %>
-  <p>
-    <%= link_to answer.body, admin_answer_path(answer) %>
-  </p>
-<% end %>

@@ -1,9 +1,10 @@
 class Test < ApplicationRecord
   belongs_to :author, foreign_key: :author_id, class_name: :User
   belongs_to :category
-  has_many :results
+  has_many :results, dependent: :destroy
   has_many :users, through: :results
-  has_many :questions
+  has_many :questions, dependent: :destroy
+  has_many :answers, through: :questions
   validates :title, presence: true
 
   validates :level, presence: true,
@@ -17,6 +18,12 @@ class Test < ApplicationRecord
   scope :category_of, ->(name) {
           joins(:category).where(categories: { title: name })
         }
+  scope :valid, -> { joins(:answers).where("answers.correct = ?", true).group("tests.id") }
+
+def self.post_test
+  valid.where(post: :true)
+
+end
 
   def self.category_order_desc(category)
     category_of(category).order(title: :desc)
@@ -24,5 +31,9 @@ class Test < ApplicationRecord
 
   def array_questions
     self.questions.pluck(:id)
+  end
+
+  def array_questions_valid
+    self.questions.valid.pluck(:id)
   end
 end

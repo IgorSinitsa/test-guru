@@ -1,7 +1,7 @@
 <h1> <%= t(".header") %> </h1>
 <%= render 'shared/errors', object: @test %>
 <p>
-  <%= link_to t(".new"), new_admin_test_path %>
+  <%=  button_to t("button.new"), new_admin_test_path, method: :get, class: "btn btn-primary" %>
 </p>
 <% unless @tests.blank? %>
   <table class="table table-striped">

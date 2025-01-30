@@ -41,7 +41,7 @@ class Result < ApplicationRecord
   end
 
   def before_validation_set_new_questions
-    arr = test.array_questions
+    arr = test.array_questions_valid
     if arr.present?
       self.correct_questions = 0
       self.questions = arr

@@ -1,15 +1,14 @@
-<h1>Question</h1>
-<p>
-  <%= link_to @answer.question.body, admin_question_path(@answer.question) %>
-</p>
-<p>
-  <b>Answer:</b>
-  <%= @answer.body %>
-</p>
-<p>
-  <b>Correct:</b>
-  <%= @answer.correct %>
-</p>
-<%= link_to "Edit", edit_admin_answer_path(@answer), method: :get %>
-<%= link_to "Delete", admin_answer_path(@answer), method: :delete,
-                                            data: { confirm: "Are you sure?" } %>
+<div class="card col-4" >
+  <div class="card-header text-center">
+    <%= link_to @question.body, admin_question_path(@question) %>
+  </div>
+  <div class="card-body text-center">
+    <%= @answer.body %>
+  </p>
+  <div class="card-footer text-center">
+    <%= link_to t("button.edit"), edit_admin_answer_path(@answer), method: :get %>
+    <%= link_to t("button.delete"), admin_answer_path(@answer),
+                                    method: :delete,
+                                    data: { confirm: t("button.confirm") } %>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<div class="col-3  border rounded p-3 border-info">
+<div class="col-5  border rounded p-3 border-info">
   <%= render 'shared/errors', object: @feedback %>
   <%= form_with( model: @feedback, local: true ) do |form| %>
     <div class="form-group">
@@ -10,7 +10,8 @@
       <%= form.text_field :email, class: "form-control"   %>
     </div>
     <div class="form-group">
-      <%= form.text_area :text, class: "form-control", required: true %>
+      <%= form.text_area :text, cols: 60, rows: 10,
+                                 class: 'form-control' %>
     </div>
     <%= form.submit t('feedback.send'), class: 'btn btn-outline-primary' %>
   <% end %>

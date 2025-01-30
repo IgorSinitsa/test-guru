@@ -16,7 +16,7 @@ module TestGuru
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    config.hosts << "apiauto.online"
+    config.hosts << ENV["SITE"]
     #####################################################
     config.time_zone = "Europe/Moscow"
     # config.eager_load_paths << Rails.root.join("extras")

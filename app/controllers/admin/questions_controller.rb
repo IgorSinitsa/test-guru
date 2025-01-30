@@ -44,6 +44,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def set_question
     @question = Question.find(params[:id])
+    @test = @question.test
   end
 
   def set_test
@@ -55,9 +56,9 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def check_user_author
-    if current_user.id != @question.test.author_id
+    if current_user.id != @test.author_id
       flash[:alert] = "You are not the author of this test."
-      redirect_to @question
+      redirect_to admin_test_path(@test)
     end
   end
 end
