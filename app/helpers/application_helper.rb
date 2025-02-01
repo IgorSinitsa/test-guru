@@ -29,4 +29,9 @@ module ApplicationHelper
   def css_flash(key)
     HASH_CSS_FLASH[key.to_sym] || "alert alert-dark"
   end
+
+  def class_img(img)
+    result_body = "<i class='#{img}' style='font-size: 10rem;' ></i>"
+    safe_join([raw(result_body)])
+  end
 end

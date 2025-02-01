@@ -1,0 +1,8 @@
+<h1> <%= t("badge.text.header") %> </h1>
+<%= render 'shared/errors', object: @badge %>
+<p>
+  <%=  button_to t("button.new"), new_admin_badge_path, method: :get, class: "btn btn-primary" %>
+</p>
+<div class="row row-cols-6">
+  <%= render @badges %>
+</div>

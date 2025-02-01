@@ -4,6 +4,7 @@ class Test < ApplicationRecord
   has_many :results, dependent: :destroy
   has_many :users, through: :results
   has_many :questions, dependent: :destroy
+  has_many :user_badges, dependent: :destroy
   has_many :answers, through: :questions
   validates :title, presence: true
 
@@ -19,6 +20,7 @@ class Test < ApplicationRecord
           joins(:category).where(categories: { title: name })
         }
   scope :valid, -> { joins(:answers).where("answers.correct = ?", true).group("tests.id") }
+  scope :passed, ->{ joins(:results).where("results.point >= ?", Result::SUCCESS_SCORE) }
 
 def self.post_test
   valid.where(post: :true)
