@@ -1,14 +1,12 @@
 class Badge < ApplicationRecord
-  belongs_to :user
-  has_many :user_badges, dependent: :destroy
   validates :name, presence: true
   validates :img, presence: true
   validates :code, presence: true
 
-  scope :code_group, -> { select(:code).group("code") }
-  scope :badges_for_code, ->(code) { where(code: code) }
+  scope :for_code, ->(code) { where(code: code) }
+  scope :for_text, ->(text) { where(text: text) }
 
   def self.code_jobs
-    code_group.pluck(:code)
+    select(:code).group("code").pluck(:code)
   end
 end

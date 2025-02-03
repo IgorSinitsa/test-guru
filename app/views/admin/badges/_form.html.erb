@@ -2,20 +2,26 @@
   <%= form_with(model: [:admin, @badge], local: true) do |form| %>
     <%#= form_with(model: @badge, url: admin_badges_path, local: true) do |form| %>
       <%= render "shared/errors", object: @badge %>
-      <%= form.label :name %>
-      <%= form.text_field :name, id: :badge_name %>
-    </p>
-    <br>
-    <p>
-      <%= form.label :img %>
-      <%= form.select :img, select_img, id: :badge_img %>
-    </p>
-    <br>
-    <p>
-      <%= form.label :code %>
-      <%= form.select :code , select_code , id: :badge_code %>
-    </p>
-    <br>
-    <%= form.submit t('button.submit'), class: 'btn btn-outline-primary' %>
-  <% end %>
-</div>
+      <p>
+        <%= form.label :name %>
+        <%= form.text_field :name, id: :badge_name %>
+      </p>
+      <br>
+      <p>
+        <%= form.label :img %>
+        <%= form.select :img, select_img, id: :badge_img %>
+      </p>
+      <br>
+      <p>
+        <%= form.label :code %>
+        <%= form.select :code , select_code , id: :badge_code %>
+      </p>
+      <br>
+      <p>
+        <%= form.label :text %>
+        <%= form.text_field :text, id: :badge_text %>
+      </p>
+      <br>
+      <%= form.submit t('button.submit'), class: 'btn btn-outline-primary' %>
+    <% end %>
+  </div>

@@ -41,5 +41,5 @@ def set_badge
 end
 
 def badge_params
-  params.require(:badge).permit(:name, :img, :code)
+  params.require(:badge).permit(:name, :img, :code, :text)
 end

@@ -17,17 +17,16 @@ class ResultController < ApplicationController
 
   def info
     @result.set_poins
-    @result.save
   end
 
   def update
+    @result.accept(params[:answer_ids])
+    @result.save
     if @result.passed_test?
       BadgesService.new(@result).give
       TestsMailer.completed_test(@result).deliver_now
       redirect_to info_result_path(@result)
     else
-      @result.accept(params[:answer_ids])
-      @result.save
       render :show
     end
   end

@@ -2,16 +2,12 @@ class BadgesService
   HASH_BADGES_SERVICE = { "0": [I18n.t("badge.service.attemps"), "pass_test_attemps_one"],
                           "1": [I18n.t("badge.service.level"), "pass_test_level"],
                           "2": [I18n.t("badge.service.category"), "pass_test_category"] }
-  LEVEL = 1
-  CATEGORY = "Backend"
 
   def initialize(result, key = nil)
     @badges_service = HASH_BADGES_SERVICE
     @user = result.user
     @test = result.test
-    @point = result.point
     @attempts = result.attempts
-    @passed_test = result.passed_test?
     @badges = []
   end
 
@@ -20,20 +16,10 @@ class BadgesService
   end
 
   def give
-     if @passed_test
-      jobs_badges(list_jobs_badges)
-      save
-     end
-    # @badges
+    jobs_badges(list_jobs_badges) if list_jobs_badges.present?
   end
 
   private
-
-  def save
-    @badges.each do |badge_code|
-      badge_code.each { |badge| UserBadge.create(user: @user, test: @test, badge: badge) }
-    end
-  end
 
   def to_key(str)
     str.to_s.to_sym.downcase
@@ -44,28 +30,28 @@ class BadgesService
   end
 
   def jobs_badges(jobs)
-    jobs.each { |job| @badges << Badge.badges_for_code(to_key(job)) if chanch_service(to_key(job)) }
+    jobs.each { |job| @user.badges << @badges if chanch_service(to_key(job)) }
   end
 
   def chanch_service(key)
-    func = @badges_service[key]
-    send(func[1])
+    @badges = send((@badges_service[key])[1])
+    @badges.present?
   end
 
   #  сервисы -----------
   def test_service
-    true
+    Badge.for_code("0") if true
   end
 
   def pass_test_attemps_one
-    @attempts == 1
+    Badge.for_code("0") if @attempts == 0
   end
 
   def pass_test_level
-    @user.pass_test_level(LEVEL).size == Test.level(LEVEL).size
+    Badge.for_code("1").for_text(@test.level.to_str) if @user.pass_test_level(@test.level).size == Test.level(@test.level).size
   end
 
   def pass_test_category
-    @user.pass_test_category(CATEGORY).size == Test.category_of(CATEGORY).size
+    Badge.for_code("2").for_text(@test.category.title) if @user.pass_test_category(@test.category.title).size == Test.category_of(@test.category.title).size
   end
 end
