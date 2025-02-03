@@ -48,10 +48,10 @@ class BadgesService
   end
 
   def pass_test_level
-    Badge.for_code("1").for_text(@test.level.to_str) if @user.pass_test_level(@test.level).size == Test.level(@test.level).size
+    Badge.for_code_text("1", @test.level.to_str) if @user.pass_test_level(@test.level).size == Test.level(@test.level).size
   end
 
   def pass_test_category
-    Badge.for_code("2").for_text(@test.category.title) if @user.pass_test_category(@test.category.title).size == Test.category_of(@test.category.title).size
+    Badge.for_code_text("2", @test.category.title) if @user.pass_test_category(@test.category.title).size == Test.category_of(@test.category.title).size
   end
 end

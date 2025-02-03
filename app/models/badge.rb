@@ -1,4 +1,5 @@
 class Badge < ApplicationRecord
+  has_many :user_badges, dependent: :destroy
   validates :name, presence: true
   validates :img, presence: true
   validates :code, presence: true
@@ -8,5 +9,9 @@ class Badge < ApplicationRecord
 
   def self.code_jobs
     select(:code).group("code").pluck(:code)
+  end
+
+  def self.for_code_text(code, text)
+    for_code(code).for_text(text)
   end
 end
