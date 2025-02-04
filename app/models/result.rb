@@ -9,7 +9,7 @@ class Result < ApplicationRecord
   CORRECTION_INDEX = 1
 
   def test_passed?
-    point >= SUCCESS_SCORE
+    pass_test
   end
 
   def index_question
@@ -56,6 +56,8 @@ class Result < ApplicationRecord
       questions.shift
     else
       self.current_question = nil
+      set_poins
+      self.pass_test = point >= SUCCESS_SCORE ? true : false
     end
   end
 
