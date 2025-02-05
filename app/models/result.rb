@@ -6,14 +6,13 @@ class Result < ApplicationRecord
   before_validation :set_current_question, on: [:create, :update]
 
   SUCCESS_SCORE = 85
-  CORRECTION_INDEX = 1
 
   def test_passed?
     pass_test
   end
 
   def index_question
-    total_questions - questions.count + CORRECTION_INDEX
+    total_questions - questions.count
   end
 
   def again
@@ -27,7 +26,7 @@ class Result < ApplicationRecord
   end
 
   def passed_test?
-    questions[0] == 0
+    current_question.nil?
   end
 
   def set_poins
@@ -44,14 +43,13 @@ class Result < ApplicationRecord
     arr = test.array_questions_valid
     if arr.present?
       self.correct_questions = 0
-      self.questions = arr
-      self.questions << 0
+      self.questions = arr.sort_by{ rand }
       self.total_questions = arr.count
     end
   end
 
   def set_current_question
-    if questions[0] != 0
+    if questions.present?
       self.current_question = Question.find(questions[0])
       questions.shift
     else

@@ -2,8 +2,7 @@ class ResultController < ApplicationController
   before_action :set_result, only: [:show, :again, :update, :info]
 
   def show
-    @result.again if @result.passed_test?
-    # render :show
+
   end
 
   def index
@@ -16,18 +15,17 @@ class ResultController < ApplicationController
   end
 
   def info
-    # @result.set_poins
-    @result.save
+
   end
 
   def update
+    @result.accept(params[:answer_ids])
+    @result.save
     if @result.passed_test?
-      BadgesService.new(@result).give if test_passed?
+      BadgesService.new(@result).give if @result.test_passed?
       TestsMailer.completed_test(@result).deliver_now
       redirect_to info_result_path(@result)
     else
-      @result.accept(params[:answer_ids])
-      @result.save
       render :show
     end
   end
