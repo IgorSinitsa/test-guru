@@ -1,4 +1,10 @@
 module ResultHelper
+  def duration_seconds(result)
+   seconds = (result.end_test - DateTime.current).seconds
+
+   seconds>= 0 ? seconds : 0
+  end
+
   def percent_completed_test(result)
     ((result.index_question.to_f / result.test.questions.length) * 100).to_i
   end

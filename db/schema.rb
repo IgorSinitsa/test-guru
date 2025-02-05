@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 2025_02_03_092636) do
     t.integer "total_questions", default: 0, null: false
     t.integer "attempts", default: 0, null: false
     t.boolean "pass_test", default: false
+    t.datetime "start_test"
+    t.datetime "end_test"
     t.index ["current_question_id"], name: "index_results_on_current_question_id"
     t.index ["test_id"], name: "index_results_on_test_id"
     t.index ["user_id"], name: "index_results_on_user_id"
@@ -82,6 +84,7 @@ ActiveRecord::Schema.define(version: 2025_02_03_092636) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "post", default: false
+    t.integer "duration", default: 0
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
