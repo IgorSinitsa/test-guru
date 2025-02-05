@@ -7,7 +7,7 @@ class TestsController < ApplicationController
 
   def start
     current_user.tests.push(@test) unless current_user.result_id(@test).present?
-    redirect_to result_path(current_user.result_id(@test).first)
+    redirect_to again_result_path(current_user.result_id(@test).first)
   end
 
   private

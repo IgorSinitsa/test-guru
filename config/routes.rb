@@ -14,8 +14,10 @@ Rails.application.routes.draw do
 
   resources :gitgists, only: %i[create]
   resources :feedbacks, only: %i[new create edit]
+  resources :user_badges, only: :index
 
   namespace :admin do
+    resources :badges
     resources :gists, only: :index
     resources :tests, shallow: true do
       patch :update_inline, on: :member

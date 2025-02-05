@@ -1,0 +1,5 @@
+<h1> <%= t(".header") %> </h1>
+<%= render 'shared/errors', object: @user_badge %>
+<div class="row row-cols-6">
+  <%= render @user_badges %>
+</div>

@@ -1,0 +1,9 @@
+ru:
+    badge:
+      text:
+        header: "Бэйджи"
+
+      service:
+        attemps: "Тест прошел с первого раза"
+
+      

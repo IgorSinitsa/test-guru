@@ -1,0 +1,3 @@
+<h1><%= t("text.new") %></h1>
+<% array_code = BadgesService.list_service.to_a %>
+<%= render partial: "form", locals: { select_code: array_code, select_img: BadgesHelper::ARRAY_IMG } %>

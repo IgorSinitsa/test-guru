@@ -5,6 +5,10 @@ ru:
       git_falure: "Ошибка записи"
       edit_test: "Редактирование теста %{test} уровня %{level} "
       edit_question: "Назад к тесту"
+      edit: "Редактирование"
+      delete: "Удаление"
+      new: "Создать"
+      
 
     button:
       edit: "Редактирование"

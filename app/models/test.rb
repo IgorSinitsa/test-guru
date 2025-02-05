@@ -19,6 +19,7 @@ class Test < ApplicationRecord
           joins(:category).where(categories: { title: name })
         }
   scope :valid, -> { joins(:answers).where("answers.correct = ?", true).group("tests.id") }
+  scope :passed, ->{ joins(:results).where("results.pass_test >= ?", true) }
 
 def self.post_test
   valid.where(post: :true)

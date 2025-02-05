@@ -1,0 +1,16 @@
+<div class="col">
+  <div class="card text-center" >
+    <h5 class="card-header "><%= badge.name %></h5>
+    <div class="card-body">
+      <%= class_img(badge.img) %>
+    </div>
+    <div class="card-footer" >
+    </div>
+    <div class="d-grid gap-2 ">
+      <%= button_to t("button.edit"), edit_admin_badge_path(badge), method: :get, class: "btn btn-primary col-12"  %>
+      <%= button_to t("button.delete"), admin_badge_path(badge), method: :delete,
+                                                    class: "btn btn-primary col-12",
+                                               data: { confirm: t("button.confirm") } %>
+    </div>
+  </div>
+</div>

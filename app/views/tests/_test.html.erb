@@ -2,7 +2,7 @@
   <td> <%= "#{test.title}" %> </td>
   <td> <%= test.level %> </td>
   <td> <%= test.questions.valid.size.size %> </td>
-  <td> <%= button_to t("button.start"), start_test_path(test),
+  <td> <%= button_to t("button.start"),  start_test_path(test),
                                         method: :post,
                                         class: "btn btn-primary"  %>
   </td>
