@@ -53,6 +53,8 @@ ru:
           title: "Название"
           level: "Уровень"
           category_id: "Категория"
+          post: "Опубликовано"
+          duration: "Время на тест"
           
     tests:
       index:

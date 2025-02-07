@@ -46,24 +46,25 @@ class Result < ApplicationRecord
       self.correct_questions = 0
       self.questions = arr.sort_by { rand }
       self.total_questions = arr.count
+      self.start_test = DateTime.current
+      self.end_test = start_test + (self.test.duration).minutes
     end
   end
 
   def update_result
-    if questions.empty?
+    if self.questions.empty? || (self.test.duration > 0 && self.end_test < DateTime.current)
       set_poins
-      self.pass_test = point >= SUCCESS_SCORE ? true : false
+      self.pass_test = self.point >= SUCCESS_SCORE ? true : false
+      self.questions = []
+      self.current_question = nil
+    else
+      set_current_question
     end
-    set_current_question
   end
 
   def set_current_question
-    if questions.present?
-      self.current_question = Question.find(questions[0])
-      questions.shift
-    else
-      self.current_question = nil
-    end
+    self.current_question = Question.find(questions[0])
+    self.questions.shift
   end
 
   def correct_answer?(answer_ids)
